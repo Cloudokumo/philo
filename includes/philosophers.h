@@ -26,10 +26,25 @@ typedef struct s_data
     int     t_eat;
     int     t_sleep;
     int     eat_max;
+	long 	start_time;
+	int		stop;
     t_philo			*philos;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	meal;
 	pthread_mutex_t	print;
 }           t_data;
+
+int	ft_atoi(const char *nptr);
+int	ft_write(char *str);
+int	ft_strlen(char *str);
+int	is_int(const char *str);
+int	ft_mutex(t_data *data);
+int	ft_philo(t_data *data);
+int	ft_init(t_data *data);
+void ft_eat(t_philo *philo);
+void ft_print(t_philo *philo, char *str);
+void *ft_dead(void *arg);
+int ft_check_death(t_data *data, int *dead);
+int ft_all_ate(t_data *data);
 
 #endif

@@ -69,3 +69,12 @@ int	is_int(const char *str)
 		return (0);
 	return (1);
 }
+
+void ft_usleep(long time)
+{
+    long start;
+    
+    start = get_time();
+    while (get_time() - start < time)
+        usleep(100);
+}
