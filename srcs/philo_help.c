@@ -23,6 +23,7 @@ void ft_eat(t_philo *philo)
     
     ft_print(philo, "is thinking");
 }
+
 void ft_print(t_philo *philo, char *str)
 {
     long time;
@@ -33,6 +34,7 @@ void ft_print(t_philo *philo, char *str)
         printf("%ld %d %s\n", time, philo->pos, str);
     pthread_mutex_unlock(&philo->data->print);
 }
+
 void *ft_dead(void *arg)
 {
     t_data *data;

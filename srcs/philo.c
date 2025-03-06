@@ -21,12 +21,6 @@ int check_param(t_data *data, int argc, char *argv[])
     data->t_death = ft_atoi(argv[2]);
 	data->t_eat = ft_atoi(argv[3]);
 	data->t_sleep = ft_atoi(argv[4]);
-    if (check_param_value(&data))
-        return (0);
-    return (1);
-}
-int check_param_value(t_data *data)
-{
     if (data->count < 1 || data->t_death < 0 || data->t_eat < 0
 		|| data->t_sleep < 0 || data->eat_max < 0)
 		return (0);

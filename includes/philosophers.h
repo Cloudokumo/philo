@@ -34,6 +34,7 @@ typedef struct s_data
 	pthread_mutex_t	print;
 }           t_data;
 
+int check_param(t_data *data, int argc, char *argv[]);
 int	ft_atoi(const char *nptr);
 int	ft_write(char *str);
 int	ft_strlen(char *str);
@@ -46,5 +47,8 @@ void ft_print(t_philo *philo, char *str);
 void *ft_dead(void *arg);
 int ft_check_death(t_data *data, int *dead);
 int ft_all_ate(t_data *data);
+void *ft_routine(void *arg);
+int ft_start_threads(t_data *data);
+void ft_exit_threads(t_data *data);
 
 #endif

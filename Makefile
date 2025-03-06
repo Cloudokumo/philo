@@ -5,11 +5,11 @@ INCLUDE	=	includes
 CFLAGS	=	-Wall -Wextra -Werror -I$(INCLUDE)
 RM		=	rm -f
 
-SRCS	=	philo.c \
+SRCS	=	srcs/philo.c \
 			srcs/utils.c \
 			srcs/initialization.c \
 			srcs/philo_help.c \
-			srcs/philo_routine.c \
+			srcs/philo_routine.c 
 
 OBJS	=	$(SRCS:%.c=%.o)
 
