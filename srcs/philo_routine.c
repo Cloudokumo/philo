@@ -28,6 +28,7 @@ int ft_start_threads(t_data *data)
     data->start_time = get_time();
     data->stop = 0;
     i = 0;
+
     while (i < data->count)
     {
         if (pthread_create(&data->philos[i].thread_id, NULL, ft_routine, &data->philos[i]))

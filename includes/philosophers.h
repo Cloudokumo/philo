@@ -34,21 +34,27 @@ typedef struct s_data
 	pthread_mutex_t	print;
 }           t_data;
 
-int check_param(t_data *data, int argc, char *argv[]);
-int	ft_atoi(const char *nptr);
-int	ft_write(char *str);
-int	ft_strlen(char *str);
-int	is_int(const char *str);
-int	ft_mutex(t_data *data);
-int	ft_philo(t_data *data);
-int	ft_init(t_data *data);
-void ft_eat(t_philo *philo);
-void ft_print(t_philo *philo, char *str);
-void *ft_dead(void *arg);
-int ft_check_death(t_data *data, int *dead);
-int ft_all_ate(t_data *data);
-void *ft_routine(void *arg);
-int ft_start_threads(t_data *data);
-void ft_exit_threads(t_data *data);
+int 	check_param(t_data *data, int argc, char *argv[]);
+int		ft_atoi(const char *nptr);
+int		ft_write(char *str);
+int		ft_strlen(char *str);
+long	get_time(void);
+int		is_int(const char *str);
+int		ft_mutex(t_data *data);
+int		ft_philo(t_data *data);
+int		ft_init(t_data *data);
+void 	ft_eat(t_philo *philo);
+void 	ft_print(t_philo *philo, char *str);
+void 	*ft_dead(void *arg);
+int 	ft_check_death(t_data *data, int *dead);
+int 	ft_all_ate(t_data *data);
+void 	*ft_routine(void *arg);
+int 	ft_start_threads(t_data *data);
+void 	ft_usleep(long time);
+void 	ft_exit_threads(t_data *data);
+int	ft_isdigit(int c);
+void	ft_reverse_str(char *str);
+char	*ft_itoa(int n);
+int	ft_getlen(int n);
 
 #endif

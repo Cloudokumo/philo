@@ -4,12 +4,12 @@ int check_param(t_data *data, int argc, char *argv[])
 {
     int     i;
 
-    i = 0;
+    i = 1;
     while (i < argc)
     {
         if (!is_int(argv[i]))
             return (0);
-        if (!ft_atoi(argv[i] < 0))
+        if (ft_atoi(argv[i]) < 0)
             return (0);
         i++;
     }
@@ -31,11 +31,13 @@ int main(int argc, char *argv[])
 {
     t_data  data;
 
+    data.eat_max = 0;
+	data.stop = 0;
     if (argc < 5 || argc > 6)
         return (ft_write("incorrect number of arguments\n"), EXIT_FAILURE);
     if (!check_param(&data, argc, argv))
         return (ft_write("incorrect parameters\n"), EXIT_FAILURE);
-    if (ft_init(&data) == EXIT_FAILURE)
+    if (!ft_init(&data))
         return (0);
     if (ft_start_threads(&data))
     {

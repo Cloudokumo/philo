@@ -7,6 +7,7 @@ RM		=	rm -f
 
 SRCS	=	srcs/philo.c \
 			srcs/utils.c \
+			srcs/utils_libft.c \
 			srcs/initialization.c \
 			srcs/philo_help.c \
 			srcs/philo_routine.c 
