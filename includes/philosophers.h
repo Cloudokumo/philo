@@ -31,12 +31,13 @@ typedef struct s_data
     t_philo			*philos;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	meal;
+	pthread_mutex_t	stop_mutex;
 	pthread_mutex_t	print;
 }           t_data;
 
 int 	check_param(t_data *data, int argc, char *argv[]);
 int		ft_atoi(const char *nptr);
-int		ft_write(char *str);
+void ft_write(char *str);
 int		ft_strlen(char *str);
 long	get_time(void);
 int		is_int(const char *str);
@@ -51,10 +52,14 @@ int 	ft_all_ate(t_data *data);
 void	*philo_routine(void *arg);
 int 	ft_start_threads(t_data *data);
 void 	ft_usleep(long time);
-void 	ft_exit_threads(t_data *data);
+void 	clean(t_data *data);
 int	ft_isdigit(int c);
 void	ft_reverse_str(char *str);
 char	*ft_itoa(int n);
 int	ft_getlen(int n);
+void set_stop(t_data *data);
+int is_stopped(t_data *data);
+void lock_forks(t_philo *philo);
+void unlock_forks(t_philo *philo);
 
 #endif

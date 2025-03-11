@@ -1,21 +1,23 @@
 #include "philosophers.h"
 
-int	ft_mutex(t_data *data)
+int ft_mutex(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	while (i < data->count)
-	{
-		if (pthread_mutex_init(&(data->forks[i]), NULL))
-			return (1);
-		i++;
-	}
-	if (pthread_mutex_init(&data->meal, NULL))
+    int i;
+ 
+    i = 0;
+    while (i < data->count)
+    {
+        if (pthread_mutex_init(&(data->forks[i]), NULL))
+            return (1);
+        i++;
+    }
+    if (pthread_mutex_init(&data->meal, NULL))
+        return (1);
+    if (pthread_mutex_init(&data->print, NULL))
+        return (1);
+    if (pthread_mutex_init(&data->stop_mutex, NULL))
 		return (1);
-	if (pthread_mutex_init(&data->print, NULL))
-		return (1);
-	return (0);
+    return (0);
 }
 
 int	ft_philo(t_data *data)

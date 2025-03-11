@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
     if (ft_start_threads(&data))
     {
         ft_write("Thread creation failed\n");
-        ft_exit_threads(&data);
         return (EXIT_FAILURE);
     }
+    clean(&data);
     return (0);
 }

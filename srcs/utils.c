@@ -8,11 +8,16 @@ long	get_time(void)
 	return ((time.tv_sec * (unsigned long)1000) + (time.tv_usec / 1000));
 }
 
-int	ft_write(char *str)
+void ft_write(char *str)
 {
-	write(2, str, ft_strlen(str));
-	return (0);
+    int i;
+    
+    i = 0;
+    while (str[i])
+        i++;
+    write(2, str, i);
 }
+
 
 int	is_int(const char *str)
 {
