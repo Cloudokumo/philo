@@ -41,6 +41,7 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
+
 void	ft_reverse_str(char *str)
 {
 	int		begin;
@@ -86,6 +87,7 @@ char	*ft_itoa(int n)
 	ft_reverse_str(ret);
 	return (ret);
 }
+
 int	ft_getlen(int n)
 {
 	int	i;

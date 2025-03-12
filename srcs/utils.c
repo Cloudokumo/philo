@@ -2,22 +2,21 @@
 
 long	get_time(void)
 {
-	struct timeval time;
+	struct timeval	time;
 
 	gettimeofday(&time, NULL);
 	return ((time.tv_sec * (unsigned long)1000) + (time.tv_usec / 1000));
 }
 
-void ft_write(char *str)
+void	ft_write(char *str)
 {
-    int i;
-    
-    i = 0;
-    while (str[i])
-        i++;
-    write(2, str, i);
-}
+	int	i;
 
+	i = 0;
+	while (str[i])
+		i++;
+	write(2, str, i);
+}
 
 int	is_int(const char *str)
 {
@@ -36,9 +35,8 @@ int	is_int(const char *str)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (res > 214748364 || (res == 214748364 && 
-			((sign == 1 && str[i] - '0' > 7) || 
-			 (sign == -1 && str[i] - '0' > 8))))
+		if (res > 214748364 || (res == 214748364 && ((sign == 1 && str[i]
+						- '0' > 7) || (sign == -1 && str[i] - '0' > 8))))
 			return (0);
 		res = res * 10 + (str[i] - '0');
 		i++;
@@ -48,11 +46,11 @@ int	is_int(const char *str)
 	return (1);
 }
 
-void ft_usleep(long time)
+void	ft_usleep(long time)
 {
-    long start;
-    
-    start = get_time();
-    while (get_time() - start < time)
-        usleep(100);
+	long	start;
+
+	start = get_time();
+	while (get_time() - start < time)
+		usleep(100);
 }
