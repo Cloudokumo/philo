@@ -61,5 +61,6 @@ void set_stop(t_data *data);
 int is_stopped(t_data *data);
 void lock_forks(t_philo *philo);
 void unlock_forks(t_philo *philo);
+void	one_philo(t_data *data);
 
 #endif

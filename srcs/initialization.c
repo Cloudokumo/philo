@@ -27,6 +27,7 @@ int	ft_philo(t_data *data)
 	i = 0;
 	while (i < data->count)
 	{
+		data->start_time = get_time();
 		data->philos[i].nbr_eat = 0;
 		data->philos[i].pos = i + 1;
 		data->philos[i].pos_str = ft_itoa(i + 1);
@@ -36,6 +37,11 @@ int	ft_philo(t_data *data)
 		data->philos[i].lfork = (i + 1) % data->count;
 		data->philos[i].data = data;
 		i++;
+	}
+	if (data->count == 1)
+	{
+		one_philo(data);
+		return (EXIT_FAILURE);
 	}
 	if (i != data->count)
 	{

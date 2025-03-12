@@ -47,3 +47,9 @@ int main(int argc, char *argv[])
     clean(&data);
     return (0);
 }
+void	one_philo(t_data *data)
+{
+	printf("0 :1 has taken a fork\n");
+	usleep(data->t_death * 1000);
+	printf("%ld :1 died\n", get_time() - data->start_time);
+}

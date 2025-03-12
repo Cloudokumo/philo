@@ -24,7 +24,6 @@ int ft_start_threads(t_data *data)
 {
     int i;
  
-    data->start_time = get_time();
     i = 0;
     while (i < data->count)
     {
@@ -74,7 +73,6 @@ int is_stopped(t_data *data)
     return (stopped);
 }
 
-// Function to safely set the stop condition
 void set_stop(t_data *data)
 {
     pthread_mutex_lock(&data->stop_mutex);
