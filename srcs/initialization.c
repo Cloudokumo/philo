@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialization.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adiehl-b <adiehl-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/24 13:20:04 by adiehl-b          #+#    #+#             */
+/*   Updated: 2025/03/13 16:11:54 by adiehl-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 int	ft_mutex(t_data *data)
@@ -38,6 +50,11 @@ int	ft_philo(t_data *data)
 		data->philos[i].data = data;
 		i++;
 	}
+	return (ft_philo_help(data, i));
+}
+
+int	ft_philo_help(t_data *data, int i)
+{
 	if (data->count == 1)
 	{
 		one_philo(data);
@@ -79,4 +96,18 @@ int	ft_init(t_data *data)
 		return (0);
 	}
 	return (1);
+}
+
+void	philo_print(t_philo *philo, char *message, int unlock)
+{
+	long	timestamp;
+
+	pthread_mutex_lock(&philo->data->print);
+	if (!is_stopped(philo->data))
+	{
+		timestamp = get_time() - philo->data->start_time;
+		printf("%ld %s %s\n", timestamp, philo->pos_str, message);
+	}
+	if (unlock)
+		pthread_mutex_unlock(&philo->data->print);
 }

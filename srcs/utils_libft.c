@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_libft.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adiehl-b <adiehl-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 16:12:18 by adiehl-b          #+#    #+#             */
+/*   Updated: 2025/03/13 16:12:19 by adiehl-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 int	ft_atoi(const char *nptr)
@@ -86,19 +98,4 @@ char	*ft_itoa(int n)
 	ret[i] = '\0';
 	ft_reverse_str(ret);
 	return (ret);
-}
-
-int	ft_getlen(int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		i++;
-	while (n != 0)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
 }

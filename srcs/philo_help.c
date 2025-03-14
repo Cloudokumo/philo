@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_help.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adiehl-b <adiehl-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 16:11:59 by adiehl-b          #+#    #+#             */
+/*   Updated: 2025/03/13 16:12:00 by adiehl-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 void	philo_eat(t_philo *philo)
@@ -44,20 +56,6 @@ void	unlock_forks(t_philo *philo)
 	}
 }
 
-void	philo_print(t_philo *philo, char *message, int unlock)
-{
-	long	timestamp;
-
-	pthread_mutex_lock(&philo->data->print);
-	if (!is_stopped(philo->data))
-	{
-		timestamp = get_time() - philo->data->start_time;
-		printf("%ld %s %s\n", timestamp, philo->pos_str, message);
-	}
-	if (unlock)
-		pthread_mutex_unlock(&philo->data->print);
-}
-
 int	philo_dead(t_data *data)
 {
 	int		i;
@@ -83,6 +81,11 @@ int	philo_dead(t_data *data)
 		pthread_mutex_unlock(&data->meal);
 		i++;
 	}
+	return (all_philos_ate(data, all_ate));
+}
+
+int	all_philos_ate(t_data *data, int all_ate)
+{
 	if (data->eat_max && all_ate)
 	{
 		pthread_mutex_lock(&data->print);
@@ -91,25 +94,4 @@ int	philo_dead(t_data *data)
 		return (1);
 	}
 	return (0);
-}
-
-int	ft_all_ate(t_data *data)
-{
-	int	i;
-
-	if (data->eat_max <= 0)
-		return (0);
-	i = 0;
-	while (i < data->count)
-	{
-		pthread_mutex_lock(&data->meal);
-		if (data->philos[i].nbr_eat < data->eat_max)
-		{
-			pthread_mutex_unlock(&data->meal);
-			return (0);
-		}
-		pthread_mutex_unlock(&data->meal);
-		i++;
-	}
-	return (1);
 }

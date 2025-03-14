@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adiehl-b <adiehl-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 16:12:23 by adiehl-b          #+#    #+#             */
+/*   Updated: 2025/03/13 16:12:24 by adiehl-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 int	check_param(t_data *data, int argc, char *argv[])
@@ -50,7 +62,7 @@ int	main(int argc, char *argv[])
 
 void	one_philo(t_data *data)
 {
-	printf("0 :1 has taken a fork\n");
+	printf("0 1 has taken a fork\n");
 	usleep(data->t_death * 1000);
-	printf("%ld :1 died\n", get_time() - data->start_time);
+	printf("%ld 1 died\n", get_time() - data->start_time);
 }

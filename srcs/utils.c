@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adiehl-b <adiehl-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 16:12:09 by adiehl-b          #+#    #+#             */
+/*   Updated: 2025/03/13 16:12:10 by adiehl-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 long	get_time(void)
@@ -53,4 +65,19 @@ void	ft_usleep(long time)
 	start = get_time();
 	while (get_time() - start < time)
 		usleep(100);
+}
+
+int	ft_getlen(int n)
+{
+	int	i;
+
+	i = 0;
+	if (n <= 0)
+		i++;
+	while (n != 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
 }

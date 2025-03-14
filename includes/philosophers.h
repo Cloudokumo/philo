@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philosophers.h                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adiehl-b <adiehl-b@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 16:12:41 by adiehl-b          #+#    #+#             */
+/*   Updated: 2025/03/13 16:12:42 by adiehl-b         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
@@ -43,12 +55,12 @@ long				get_time(void);
 int					is_int(const char *str);
 int					ft_mutex(t_data *data);
 int					ft_philo(t_data *data);
+int					ft_philo_help(t_data *data, int i);
+int					all_philos_ate(t_data *data, int all_ate);
 int					ft_init(t_data *data);
 void				philo_eat(t_philo *philo);
 void				philo_print(t_philo *philo, char *message, int unlock);
 int					philo_dead(t_data *data);
-int					ft_check_death(t_data *data, int *dead);
-int					ft_all_ate(t_data *data);
 void				*philo_routine(void *arg);
 int					ft_start_threads(t_data *data);
 void				ft_usleep(long time);
